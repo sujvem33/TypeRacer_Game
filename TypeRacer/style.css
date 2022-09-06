@@ -1,0 +1,43 @@
+
+body{
+    
+    background-color: hsla(70, 76%, 65%, 1) ;
+    text-align: center;
+  
+}
+.typeracer{
+    width :600px;
+    height: 500px;
+
+    margin-left : 26%;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    background-color: hsla(242, 58%, 73%, 1);
+}
+.navbar{
+    
+    color: hsla(189, 86%, 64%, 1);
+  
+}
+
+.scoreandtime{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+.bg {
+	background-color: #04AF71;
+}
+
+.playerdetails{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.prompt{
+    background-color: red;
+}
