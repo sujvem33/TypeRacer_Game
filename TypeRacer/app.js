@@ -3,7 +3,7 @@ let words = document.querySelector(".words");
 let newScore = document.querySelector(".scoredisplay .score");
 let newTime = document.querySelector(".time");
 let points = 0;
-let seconds = 120;
+let seconds = 10;
 let holderwrap;
 let typed;
 let newgame = document.querySelector(".restartbutton")
@@ -17,6 +17,14 @@ let winnerName = "";
 let Name;
 
 
+const Instructions = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+const displayButton = () => {
+    let DisplayInstructions = document.querySelector(".instructionsdisplay")
+    DisplayInstructions.innerHTML= `${Instructions}`
+    DisplayInstructions.removeAttribute('onClick')
+
+   
+}
 
 const wordList1 = ['ACRES','ACROSS','ACT','ACTION','ACTIVE',
 'ADD','ADULT',
@@ -78,7 +86,6 @@ const random = (list) => {
 Start.addEventListener("click", (e) => {
      Name = window.prompt("Enter your name: ");
     newName.innerHTML = Name;
-    
     countdown();
     random(wordList1);
     Start.disabled = true;	
@@ -86,8 +93,8 @@ Start.addEventListener("click", (e) => {
 });
 
 
-const typing = (e) => {
-    typed = String.fromCharCode(e.which);
+const typing = (str) => {
+    typed = String.fromCharCode(str.which);
     for (let i = 0; i < holderwrap.length; i++) {
         if (holderwrap[i].innerHTML === typed) { 
             if (holderwrap[i].classList.contains("bg")) { 
@@ -142,8 +149,10 @@ document.addEventListener("keydown", typing, false);
 
 
 
-newgame.addEventListener('click', () => {
-    alert(`The winner is ${winnerName}`)
+newgame.addEventListener('click', () => { 
+    if(points > 0){
+        alert(`The winner is ${winnerName}`)  
+    }
     location.reload();
 });
 

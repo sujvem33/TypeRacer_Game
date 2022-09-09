@@ -9,15 +9,18 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <button class="info">Game Instructions</button>
+        <div class="display">
+        <button class="info" onclick="displayButton()"  id="button">Game Instructions</button>
+        <div class="instructionsdisplay" ></div>
+        </div>  
         <div class="typeracer">
             <div class="navbar">
                  <h1 class="gameTitle">TypeRacer</h1>
                  <p class="gameDescription">Type as many words as you can until time runs out!</p>
             </div>
             <div class="buttons">
-                <button class="startbutton">START GAME</button>
-                <button class="restartbutton">RESTART GAME</button>
+                <button class="startbutton" id="button">START GAME</button>
+                <button class="restartbutton" id="button">RESTART GAME</button>
             </div>
             <div class="scoreandtime">
                 <div class="scoredisplay">
