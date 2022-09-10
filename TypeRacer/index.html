@@ -9,29 +9,23 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="display">
-        <button class="info" onclick="displayButton()"  id="button">Game Instructions</button>
-        <div class="instructionsdisplay" ></div>
-        </div>  
+        <div class="navbar">
+        <div class="gameTitle">
+            <audio src="/TypeRacer/beep-02.wav" class="music"></audio>
+            <h1>TypeRacer</h1>
+            <!-- <p class="gameDescription">Type as many words as you can until time runs out!</p> -->
+        </div>
+        <button class="info" onclick="displayButton()"  id="button">Game Rules</button>
+        </div>
         <div class="typeracer">
-            <div class="navbar">
-                 <h1 class="gameTitle">TypeRacer</h1>
-                 <p class="gameDescription">Type as many words as you can until time runs out!</p>
-            </div>
-            <div class="buttons">
+            
+        <div class="instructionsdisplay hide"></div>
+        <div class="grid">
+            <div class="gridbuttons" >
                 <button class="startbutton" id="button">START GAME</button>
                 <button class="restartbutton" id="button">RESTART GAME</button>
             </div>
-            <div class="scoreandtime">
-                <div class="scoredisplay">
-                    <p>Score</p>
-                    <span class="score">0</span>
-                 </div>
-                <div class="timedisplay">
-                    <p>Time left</p>
-                    <span class="time">60</span>
-                </div>
-            </div>
+            
             <div class="playerdetails">
                 <div class="highscore">
                 <p>High Score</p>
@@ -42,19 +36,33 @@
                     <span class="playerName"></span>
                 </div>
                 <div class="highscoreplayerName">
-                    <p>HighScorer Name</p>
-                    <span class="winnerName">Name</span>
+                    <p>Winner Name</p>
+                    <span class="winnerName"></span>
+                </div>
+            </div>
+
+            <div class="scoreandtime">
+                <div class="scoredisplay">
+                    <p>Score</p>
+                    <span class="score">0</span>
+                 </div>
+                <div class="timedisplay">
+                    <p>Time left</p>
+                    <span class="time">60</span>
                 </div>
                 <div class="Leveldisplay">
-                    <p>You are on Level</p>
+                    <p>Level</p> 
                     <span class="levels">1</span>
                 </div>
             </div>
+
             <div class="worddisplay">
                  <p class="words"></p>
             </div>
+
         </div> 
         
+    </div>
         <script src="app.js"></script>
     </body>
 </html>
