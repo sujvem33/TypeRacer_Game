@@ -3,7 +3,7 @@ let words = document.querySelector(".words");
 let newScore = document.querySelector(".scoredisplay .score");
 let newTime = document.querySelector(".time");
 let points = 0;
-let seconds = 90;
+let seconds = 10;
 let holderwrap;
 let typed;
 let newgame = document.querySelector(".restartbutton")
@@ -28,6 +28,8 @@ const displayButton = () => {
         DisplayInstructions.classList.toggle("hide")
         }
 }
+
+
 
 const wordList1 = ['ACT','AGE','AGO','AID','AIR','ALL','ALSO','AM','ANTS','AT','ATE','ATOM','AWAY',
 'BABY','BACK','BAD','BAG','BALL','BAND','BANK','BAR','BARE','BARK','BARN','BASE','BAT','BATTLE','BE',
@@ -75,6 +77,20 @@ const wordList3 = ['THE TRAIN LEAVES IN 10 MINUTES','100 DUCK SIZED HORSES','90S
 
 
 
+
+const random = (list) => {
+    words.innerHTML = "";
+  		let randomword = Math.floor(Math.random() * list.length ) ;
+  		let wordArray = list[randomword].split("");
+  		for (let i = 0; i < wordArray.length; i++) { 
+  			let holder = document.createElement("holder");
+  			holder.classList.add("holder");
+  			holder.innerHTML = wordArray[i];
+  			words.appendChild(holder);
+  		}
+  		holderwrap = document.querySelectorAll(".holder");
+}
+
 const countdown = () => {
     points = 0;
  		let timer = setInterval(() => {
@@ -87,8 +103,8 @@ const countdown = () => {
     			words.innerHTML = "";
     			Start.disabled = false;
     			clearInterval(timer);
-    			seconds = 90;
-    			newTime.innerHTML = "90";
+    			seconds = 10;
+    			newTime.innerHTML = "10";
                 levelChange.innerHTML= "1"
                 newName.innerHTML = ""
                 if(highScore < points){
@@ -106,21 +122,18 @@ const countdown = () => {
 
 
 
-const random = (list) => {
-    words.innerHTML = "";
-  		let randomword = Math.floor(Math.random() * list.length ) ;
-  		let wordArray = list[randomword].split("");
-  		for (let i = 0; i < wordArray.length; i++) { 
-  			let holder = document.createElement("holder");
-  			holder.classList.add("holder");
-  			holder.innerHTML = wordArray[i];
-  			words.appendChild(holder);
-  		}
-  		holderwrap = document.querySelectorAll(".holder");
-}
 
-Start.addEventListener("click", (e) => {
+
+Start.addEventListener("click", () => {
      Name = window.prompt("Enter your name: ");
+     if(Name === null || Name === '' ){
+        text = "No name provided! Click on StartGame button again and enter your Name to start playing"
+        location.reload();
+    }
+    else{
+        text = `Hello ${Name} !`
+    }
+    alert(text);
     newName.innerHTML = Name;
     countdown();
     random(wordList1);
@@ -192,8 +205,11 @@ document.addEventListener("keydown", typing, false);
 
 
 newgame.addEventListener('click', () => { 
-    if(points > 0 && winnerName != ''){
+    if(points >=0  && winnerName != ''){
         alert(`The winner is ${winnerName}`)  
+    }
+    else if(winnerName === '' ){
+        alert("Click on StartGame button to play")
     }
     else{
         alert("You lost the game!!")

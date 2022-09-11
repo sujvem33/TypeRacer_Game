@@ -6,7 +6,7 @@ body{
 
 .typeracer{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   /* justify-content:space-around ; */
 }
 
@@ -71,14 +71,14 @@ body{
     background-repeat: no-repeat, repeat;
     background: fit-content;
     border-style: groove;
-    width :400px;
-    height: 450px;
-    border-radius: 10%;
-    margin-left : 1%;
-    margin-top: 1%;
     color: rgb(204, 21, 21);
     font-size: larger;
     display: inline-block;
+    width :600px;
+    height: 380px;
+    border-radius: 10%;
+    margin-left : 28%;
+    margin-top: 1%;
     
 }
 .bg {
