@@ -6,3 +6,4 @@ Each player has 90 seconds of play time.
 Level keeps going up as player keeps typing.
 After the time is up, score pops up.
 Highest scorer's name will be displayed in the 'Winner Name' field.
+Click on Restart Game to start the game from the beginning.
