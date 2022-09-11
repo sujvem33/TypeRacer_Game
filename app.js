@@ -1,4 +1,5 @@
-let Start = document.querySelector(".startbutton");
+let Start1 = document.querySelector(".Player1button");
+let Start2 = document.querySelector(".Player2button");
 let words = document.querySelector(".words");
 let newScore = document.querySelector(".scoredisplay .score");
 let newTime = document.querySelector(".time");
@@ -7,22 +8,18 @@ let seconds = 10;
 let holderwrap;
 let typed;
 let newgame = document.querySelector(".restartbutton")
+let highScore = 0
+let highScoreElement = document.querySelector(".highscore .score");
 let highScorePlayer = document.querySelector(".winnerName");
 let nextlevel = document.querySelector(".level2Button");
-let newName1 = document.querySelector(".playerName1");
-let newName2 = document.querySelector(".playerName2");
+let newName1 = document.querySelector(".player1Name");
+let newName2 = document.querySelector(".player2Name");
 let level = 1;
 let winnerName = "";
+let Name;
 let levelChange = document.querySelector(".levels")
 let audio = document.querySelector(".music")
 let currentLetter = 0;
-let Player1;
-let Player2;
-let players;
-let playerNames = document.querySelector(".PlayerNamesbutton")
-let player1Score = document.querySelector(".p1score .score")
-let player2Score = document.querySelector(".p2score .score")
-
 
 
 const Instructions = "<ul><li>This is a Multi Player Game!!</li><li>Click on Start Game to begin playing.</li><li>Each player has 90 seconds of play time.</li><li>Level keeps going up as player keeps typing</li><li>After the time is up, score pops up.</li><li>Highest scorer's name will be displayed in the 'Winner Name' field.</li><li>Click on Restart Game to start the game from the beginning.</li></ul>"
@@ -98,28 +95,32 @@ const random = (list) => {
 
 const countdown = () => {
     points = 0;
+    
  		let timer = setInterval(() => {
-            Start.disabled = true;
+            
     		seconds--;
     		newTime.innerHTML = seconds;
     		if (seconds === 0) {
     			alert("Game over! Your score is " + points);
     			newScore.innerHTML = "0";
     			words.innerHTML = "";
-    			Start.disabled = false;
     			clearInterval(timer);
     			seconds = 10;
     			newTime.innerHTML = "10";
                 levelChange.innerHTML= "1"
-               
-                // newName.innerHTML = ""
-                // if(highScore < points){
-                //     highScore = points;
-                //     highScoreElement.innerHTML = highScore;
-                //     winnerName = Name;
-                //     highScorePlayer.innerHTML = winnerName;
+                newName1.innerHTML = ""
+                newName2.innerHTML = ""
+                
+                if(highScore < points){
+                    highScore = points;
+                    highScoreElement.innerHTML = highScore;
+                    winnerName = Name;
+                    highScorePlayer.innerHTML = winnerName;
                     
-                //  }
+                 }
+                 else if(highScore === points){
+                    highScorePlayer.innerHTML = "Tie Game, play again"; 
+                 }
                 
     		}
  		}, 1000);
@@ -130,72 +131,41 @@ const countdown = () => {
 
 
 
-// Start.addEventListener("click", () => {
-//     // //  Player1 = window.prompt("Enter player1 name: ");
-//     // //  Player2 = window.prompt("Enter player2 name: ");
-//     //  if(Name === null || Name === '' ){
-//     //     text = "No name provided! Click on StartGame button again and enter your Name to start playing"
-//     //     alert(text);
-//     //     return;
-//     // }
-//     // else{
-//     //     text = `Hello ${Name} !`
-//     //     alert(text);
-//     // }
-    
-//     // newName.innerHTML = Name;
-//     countdown();
-//     random(wordList1);
-//     Start.disabled = true;	
-    
-// });
-
-
-// beginGame = () => {
-       
-//     countdown();
-//     random(wordList1);
-//      Start.disabled = true;
-// }
-
-playerNames.addEventListener("click", () => {
-     Player1 = window.prompt("Enter player1 name: ");
-     Player2 = window.prompt("Enter player2 name: ");
-     players = [
-        {
-            playerId: 1,
-            playerName: Player1,
-            points : 0
-        },
-        {
-            playerId: 2,
-            playerName: Player2,
-            points : 0
-        }
-    ]
-    newName1.innerHTML = Player1;
-    newName2.innerHTML = Player2;
-   
-
-});
-
-Start.addEventListener("click", () => {
-console.log('logging into start ');
-console.log(players.length);
-for (let i = 0; i < players.length; i++) {
-   
+Start1.addEventListener("click", () => {
+    Start1.disabled = true;	
+     Name = window.prompt("Enter your name: ");
+     if(Name === null || Name === '' ){
+        text = "No name provided! Click on StartGame button again and enter your Name to start playing"
+        return;
+    }
+    else{
+        text = `Hello ${Name} !`
+    }
+    alert(text);
+    newName1.innerHTML = Name;
     countdown();
     random(wordList1);
-     Start.disabled = true;
-}
-if(players[0].points < players[1].points) {
-    highScorePlayer.innerHTML = Player2;
-} else if(players[0].points = players[1].points) {
-    highScorePlayer.innerHTML = Player1, Player2;  
-} else {
-    highScorePlayer.innerHTML = Player1; 
-}
+    
+    
+});
 
+
+Start2.addEventListener("click", () => {
+    Start2.disabled = true;
+    Name = window.prompt("Enter your name: ");
+    if(Name === null || Name === '' ){
+       text = "No name provided! Click on StartGame button again and enter your Name to start playing"
+       return;
+   }
+   else{
+       text = `Hello ${Name} !`
+   }
+   alert(text);
+   newName2.innerHTML = Name;
+   countdown();
+   random(wordList1);
+   	
+   
 });
 
 
@@ -264,9 +234,6 @@ document.addEventListener("keydown", typing, false);
 newgame.addEventListener('click', () => { 
     location.reload();
 });
-
-
-
 
 
 

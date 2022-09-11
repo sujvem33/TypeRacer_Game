@@ -11,37 +11,39 @@
     <body>
         <audio src="/TypeRacer/beep-02.wav" class="music"></audio>
         <div class="navbar">
-        <div class="gameTitle">TypeRacer</div>
+        <div class="gameTitle">TypeRacer</div> 
         <button class="info" onclick="displayButton()"  id="button">Game Rules</button>
         </div>
         <div class="typeracer">
+            
         <div class="instructionsdisplay hide"></div>
         <div class="grid">
             <div class="gridbuttons" >
-                <button class="PlayerNamesbutton" id="button">Enter Player Names</button>
-                <button class="startbutton" id="button">START GAME</button>
+                
+                <button class="Player1button" id="button">Player1</button>
+                <button class="Player2button" id="button">Player2</button>
                 <button class="restartbutton" id="button">RESET GAME</button>
             </div>
+            
             <div class="playerdetails">
                 <div class="highscore">
-                <p>Player1 Score</p>
-                <span class="p1score">0</span>
-                <p>Player2 Score</p>
-                <span class="p2score">0</span>
+                <p>High Score</p>
+                <span class="score">0</span>
                 </div>
-                <div class="Player1Name">
-                    <p>Player1</p>
-                    <span class="playerName1"></span>
+                <div class="player1details">
+                    <p>Player1 Name</p>
+                    <span class="player1Name"></span>
                 </div>
-                <div class="Player2Name">
-                    <p>Player2</p>
-                    <span class="playerName2"></span>
+                <div class="player2details">
+                    <p>Player2 Name</p>
+                    <span class="player2Name"></span>
                 </div>
                 <div class="highscoreplayerName">
                     <p>Winner Name</p>
                     <span class="winnerName"></span>
                 </div>
             </div>
+
             <div class="scoreandtime">
                 <div class="scoredisplay">
                     <p>Score</p>
@@ -56,10 +58,13 @@
                     <span class="levels">1</span>
                 </div>
             </div>
+
             <div class="worddisplay">
                  <p class="words"></p>
             </div>
+
         </div> 
+        
     </div>
         <script src="app.js"></script>
     </body>
