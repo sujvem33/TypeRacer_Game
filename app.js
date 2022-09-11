@@ -22,9 +22,7 @@ let audio = document.querySelector(".music")
 let currentLetter = 0;
 Start2.disabled = true;
 
-
-
-const Instructions = "<ul><li>This is a Multi Player Game!!</li><li>Click on Start Game to begin playing.</li><li>Each player has 90 seconds of play time.</li><li>Level keeps going up as player keeps typing</li><li>After the time is up, score pops up.</li><li>Highest scorer's name will be displayed in the 'Winner Name' field.</li><li>Click on Restart Game to start the game from the beginning.</li></ul>"
+const Instructions = "<ul><li>Welcome to the TypeRacer!!</li><li>This is a Two Player Game.</li><li>First player would Click on Player1 button to play.</li><li>Enter name and press OK to start the game.</li><li>There will be 60 seconds of play time.</li><li>Level keeps going up as player keeps typing.</li><li>After the time is up, score pops up.</li><li>Second player would Click on Player2 button to play .</li><li>Enter name and press OK to start the game.</li><li>There will be 60 seconds of play time.</li><li>Level keeps going up as player keeps typing.</li><li>After the time is up, score pops up.</li><li>Winner is displayed!!</li><li>Click on Reset Game to start the game from the beginning.</li></ul>"
 const displayButton = () => {
     let DisplayInstructions = document.querySelector(".instructionsdisplay")
     DisplayInstructions.innerHTML = `${Instructions}` 
