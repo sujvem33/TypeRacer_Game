@@ -7,20 +7,25 @@ let seconds = 10;
 let holderwrap;
 let typed;
 let newgame = document.querySelector(".restartbutton")
-let highScore = 0
-let highScoreElement = document.querySelector(".highscore .score");
 let highScorePlayer = document.querySelector(".winnerName");
 let nextlevel = document.querySelector(".level2Button");
-let newName = document.querySelector(".playerName");
+let newName1 = document.querySelector(".playerName1");
+let newName2 = document.querySelector(".playerName2");
 let level = 1;
 let winnerName = "";
-let Name;
 let levelChange = document.querySelector(".levels")
 let audio = document.querySelector(".music")
 let currentLetter = 0;
+let Player1;
+let Player2;
+let players;
+let playerNames = document.querySelector(".PlayerNamesbutton")
+let player1Score = document.querySelector(".p1score .score")
+let player2Score = document.querySelector(".p2score .score")
 
 
-const Instructions = "hhhhhhhhhhhhhhhhhhhhhhh"
+
+const Instructions = "<ul><li>This is a Multi Player Game!!</li><li>Click on Start Game to begin playing.</li><li>Each player has 90 seconds of play time.</li><li>Level keeps going up as player keeps typing</li><li>After the time is up, score pops up.</li><li>Highest scorer's name will be displayed in the 'Winner Name' field.</li><li>Click on Restart Game to start the game from the beginning.</li></ul>"
 const displayButton = () => {
     let DisplayInstructions = document.querySelector(".instructionsdisplay")
     DisplayInstructions.innerHTML = `${Instructions}` 
@@ -106,14 +111,15 @@ const countdown = () => {
     			seconds = 10;
     			newTime.innerHTML = "10";
                 levelChange.innerHTML= "1"
-                newName.innerHTML = ""
-                if(highScore < points){
-                    highScore = points;
-                    highScoreElement.innerHTML = highScore;
-                    winnerName = Name;
-                    highScorePlayer.innerHTML = winnerName;
+               
+                // newName.innerHTML = ""
+                // if(highScore < points){
+                //     highScore = points;
+                //     highScoreElement.innerHTML = highScore;
+                //     winnerName = Name;
+                //     highScorePlayer.innerHTML = winnerName;
                     
-                 }
+                //  }
                 
     		}
  		}, 1000);
@@ -124,21 +130,72 @@ const countdown = () => {
 
 
 
+// Start.addEventListener("click", () => {
+//     // //  Player1 = window.prompt("Enter player1 name: ");
+//     // //  Player2 = window.prompt("Enter player2 name: ");
+//     //  if(Name === null || Name === '' ){
+//     //     text = "No name provided! Click on StartGame button again and enter your Name to start playing"
+//     //     alert(text);
+//     //     return;
+//     // }
+//     // else{
+//     //     text = `Hello ${Name} !`
+//     //     alert(text);
+//     // }
+    
+//     // newName.innerHTML = Name;
+//     countdown();
+//     random(wordList1);
+//     Start.disabled = true;	
+    
+// });
+
+
+// beginGame = () => {
+       
+//     countdown();
+//     random(wordList1);
+//      Start.disabled = true;
+// }
+
+playerNames.addEventListener("click", () => {
+     Player1 = window.prompt("Enter player1 name: ");
+     Player2 = window.prompt("Enter player2 name: ");
+     players = [
+        {
+            playerId: 1,
+            playerName: Player1,
+            points : 0
+        },
+        {
+            playerId: 2,
+            playerName: Player2,
+            points : 0
+        }
+    ]
+    newName1.innerHTML = Player1;
+    newName2.innerHTML = Player2;
+   
+
+});
+
 Start.addEventListener("click", () => {
-     Name = window.prompt("Enter your name: ");
-     if(Name === null || Name === '' ){
-        text = "No name provided! Click on StartGame button again and enter your Name to start playing"
-        location.reload();
-    }
-    else{
-        text = `Hello ${Name} !`
-    }
-    alert(text);
-    newName.innerHTML = Name;
+console.log('logging into start ');
+console.log(players.length);
+for (let i = 0; i < players.length; i++) {
+   
     countdown();
     random(wordList1);
-    Start.disabled = true;	
-    
+     Start.disabled = true;
+}
+if(players[0].points < players[1].points) {
+    highScorePlayer.innerHTML = Player2;
+} else if(players[0].points = players[1].points) {
+    highScorePlayer.innerHTML = Player1, Player2;  
+} else {
+    highScorePlayer.innerHTML = Player1; 
+}
+
 });
 
 
@@ -205,15 +262,6 @@ document.addEventListener("keydown", typing, false);
 
 
 newgame.addEventListener('click', () => { 
-    if(points >=0  && winnerName != ''){
-        alert(`The winner is ${winnerName}`)  
-    }
-    else if(winnerName === '' ){
-        alert("Click on StartGame button to play")
-    }
-    else{
-        alert("You lost the game!!")
-    }
     location.reload();
 });
 
