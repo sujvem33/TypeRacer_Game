@@ -2,7 +2,7 @@ body{
     
     text-align: center; 
     background-image: url("https://c.tenor.com/ShphQRiwlEgAAAAC/matrix-code.gif");
-    background-size: 100% 600px; ;
+    background-size: 100% 100%; ;
     background-repeat: no-repeat  ;
 }
 
@@ -25,14 +25,14 @@ body{
 }
 .grid{
   background-image: url("https://i.pinimg.com/originals/db/cf/91/dbcf911e31ff3918b5afebd462b67a2c.jpg");
-  background-size: 700px 500px;
+  background-size: 800px 500px;
   background-repeat: no-repeat;
   border-style: groove;
-    width :700px;
+    width :800px;
     height: 380px;
     color: blue;
     border-radius: 10%;
-    margin-left : 22%;
+    margin-left : 18%;
     margin-top: 1%;
     display: flex;
     text-align: center;
