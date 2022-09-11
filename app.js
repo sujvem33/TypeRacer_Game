@@ -22,6 +22,7 @@ let audio = document.querySelector(".music")
 let currentLetter = 0;
 Start2.disabled = true;
 
+
 const Instructions = "<ul><li>Welcome to the TypeRacer!!</li><li>This is a Two Player Game.</li><li>First player would Click on Player1 button to play.</li><li>Enter name and press OK to start the game.</li><li>There will be 60 seconds of play time.</li><li>Level keeps going up as player keeps typing.</li><li>After the time is up, score pops up.</li><li>Second player would Click on Player2 button to play .</li><li>Enter name and press OK to start the game.</li><li>There will be 60 seconds of play time.</li><li>Level keeps going up as player keeps typing.</li><li>After the time is up, score pops up.</li><li>Winner is displayed!!</li><li>Click on Reset Game to start the game from the beginning.</li></ul>"
 const displayButton = () => {
     let DisplayInstructions = document.querySelector(".instructionsdisplay")
@@ -30,7 +31,6 @@ const displayButton = () => {
         DisplayInstructions.classList.toggle("hide")
         }
 }
-
 
 
 const wordList1 = ['ACT','AGE','AGO','AID','AIR','ALL','ALSO','AM','ANTS','AT','ATE','ATOM','AWAY',
@@ -77,8 +77,6 @@ const wordList3 = ['THE TRAIN LEAVES IN 10 MINUTES','100 DUCK SIZED HORSES','90S
 'ALEX FROM TARGET','ALEXA PLAY DESPACITO','ALL THOSE CHICKENS','IM THE CAPTAIN NOW','I LIKE TURTLES','ICE AGE BABY','ITS A TRAP',
 'THE CAR TURNED THE CORNER','SHE OPENED THE DOOR', 'KELLY TWIRLED IN CIRCLES', 'MAKE THE BEST OF THINGS','SHE LIKES BANANA', 
 'OPEN THE JAR CAREFULLY','HE LOVES FISH TACOS', 'I ATE DINNER','NOTHING BEATS A COMPLETE SENTENCE','ITS FREE REAL ESTATE','ITS GONNA BE MAY','ITS MONDAY MY DUDES','I UNDERSTOOD THAT REFERENCE'];
-
-
 
 
 
@@ -147,9 +145,7 @@ Start1.addEventListener("click", () => {
     Start1.disabled = true;
     Start2.disabled = false;
     countdown();
-    random(wordList1);
-
-    
+    random(wordList1);  
 });
 
 
@@ -168,7 +164,6 @@ Start2.addEventListener("click", () => {
    newName2.innerHTML = Name;
    countdown();
    random(wordList1); 
-  
 });
 
 
