@@ -98,3 +98,7 @@ body{
 .gridbuttons{
   padding-bottom: 5%;
 }
+.winnerName{
+  font-size: 40px;
+  color : green;
+}
