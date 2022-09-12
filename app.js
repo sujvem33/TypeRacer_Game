@@ -6,7 +6,7 @@ let Score1 = document.querySelector(".player1score");
 let Score2 = document.querySelector(".player2score");
 let newTime = document.querySelector(".time");
 let points = 0;
-let seconds = 60;
+let seconds = 10;
 let holderwrap;
 let typed;
 let newgame = document.querySelector(".restartbutton")
@@ -21,6 +21,7 @@ let levelChange = document.querySelector(".levels")
 let audio = document.querySelector(".music")
 let currentLetter = 0;
 Start2.disabled = true;
+
 
 
 const Instructions = "<ul><li>Welcome to the TypeRacer!!</li><li>This is a Two Player Game.</li><li>First player would Click on Player1 button to play.</li><li>Enter name and press OK to start the game.</li><li>There will be 60 seconds of play time.</li><li>Level keeps going up as player keeps typing.</li><li>After the time is up, score pops up.</li><li>Second player would Click on Player2 button to play .</li><li>Enter name and press OK to start the game.</li><li>There will be 60 seconds of play time.</li><li>Level keeps going up as player keeps typing.</li><li>After the time is up, score pops up.</li><li>Winner is displayed!!</li><li>Click on Reset Game to start the game from the beginning.</li></ul>"
@@ -108,7 +109,7 @@ const countdown = () => {
                 }
     			words.innerHTML = "";
     			clearInterval(timer);
-    			seconds = 60;
+    			seconds = 10;
     			newTime.innerHTML = "0";
                 if(Start2.disabled === false){
                     highScorePlayer.innerHTML = ''
@@ -144,6 +145,7 @@ Start1.addEventListener("click", () => {
     newName1.innerHTML = Name;
     Start1.disabled = true;
     Start2.disabled = false;
+    
     countdown();
     random(wordList1);  
 });
@@ -206,15 +208,15 @@ const typing = (str) => {
             setTimeout(() => {
                 words.className = "words";
                 
-                if(points < 15 ) {
+                if(points < 2 ) {
                     random(wordList1); 
                     levelChange.innerHTML= "1"
                 }
-                else if (points >= 15 && points < 25){
+                else if (points >= 2 && points < 3){
                     random(wordList2); 
                     levelChange.innerHTML= "2"
                 }
-                else if(points >= 25){
+                else if(points >= 3){
                     random(wordList3); 
                     levelChange.innerHTML= "3"
                 } 
